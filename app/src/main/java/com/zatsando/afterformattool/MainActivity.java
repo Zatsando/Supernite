@@ -36,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
     public void discord_check(View view) {
         if(discord_check.isChecked()){
             Toast.makeText(getApplicationContext(), "Checked!", Toast.LENGTH_SHORT).show();
+            commands.add("choco install discord;");
         }else {
             Toast.makeText(getApplicationContext(), "Unchecked!", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void ready_button(View view) {
-
+        Toast.makeText(getApplicationContext(), "You are indeed, ready!", Toast.LENGTH_SHORT).show();
     }
 }
