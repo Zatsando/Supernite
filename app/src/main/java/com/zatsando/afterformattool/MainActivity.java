@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private CheckBox brave_check;
     private CheckBox discord_check;
@@ -20,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    ArrayList<String> commands = new ArrayList<>();
+
     public void brave_check(View view) {
         if(brave_check.isChecked()){
             Toast.makeText(getApplicationContext(), "Checked!", Toast.LENGTH_SHORT).show();
+            commands.add("choco install brave;");
         }else {
             Toast.makeText(getApplicationContext(), "Unchecked!", Toast.LENGTH_SHORT).show();
         }
