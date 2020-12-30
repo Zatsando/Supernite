@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">After Format Tool</string>
     <string name="brave">Brave</string>
+    <string name="browsers">Browsers</string>
+    <string name="i_m_ready">I \'M READY!</string>
+    <string name="social">Social</string>
 </resources>

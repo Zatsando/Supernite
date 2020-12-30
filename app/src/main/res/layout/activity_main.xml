@@ -25,6 +25,7 @@
         android:id="@+id/vsc_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="vsc_check"
         android:layout_marginTop="204dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.741"
@@ -47,6 +48,7 @@
         android:id="@+id/intellij_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="intellij_check"
         android:layout_marginTop="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.741"
@@ -54,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageIntellij"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginTop="128dp"
@@ -69,7 +71,7 @@
         android:id="@+id/eclipse_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="brave_check"
+        android:onClick="eclipse_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.741"
@@ -78,11 +80,10 @@
         app:layout_constraintVertical_bias="0.081" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageEclipse"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginTop="56dp"
-        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +91,7 @@
         app:srcCompat="@mipmap/eclipse" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextDevtools"
         android:layout_width="89dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -104,11 +105,10 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageBrave"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginTop="56dp"
-        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,10 +116,9 @@
         app:srcCompat="@mipmap/brave" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageDiscord"
         android:layout_width="63dp"
         android:layout_height="63dp"
-        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
@@ -157,14 +156,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:onClick="ready_button"
-        android:text="I 'M READY!"
+        android:text="@string/i_m_ready"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageFirefox"
         android:layout_width="63dp"
         android:layout_height="63dp"
         android:layout_marginTop="128dp"
@@ -175,7 +174,7 @@
         app:srcCompat="@mipmap/firefox" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextBrowsers"
         android:layout_width="89dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -183,7 +182,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Browsers"
+        android:text="@string/browsers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -196,7 +195,7 @@
         android:layout_marginTop="204dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Social"
+        android:text="@string/social"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,6 +203,7 @@
         android:id="@+id/mozila_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="mozila_check"
         android:layout_marginTop="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.28"
@@ -211,7 +211,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageTelegram"
         android:layout_width="63dp"
         android:layout_height="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -225,6 +225,7 @@
         android:id="@+id/telegram_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="telegram_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.283"
