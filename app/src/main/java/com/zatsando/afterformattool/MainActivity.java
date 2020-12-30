@@ -2,6 +2,7 @@ package com.zatsando.afterformattool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -36,8 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     //read and clear buttons
     public void ready_button(View view) {
-//        commands.toString().replace(",", "");
-        System.out.println(commands);
+        String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
+
+        //intend method to create the text file
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textCommand);
+        sendIntent.setType("text/.ps1");
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+
         Toast.makeText(getApplicationContext(), "You are indeed, ready!", Toast.LENGTH_SHORT).show();
     }
 
