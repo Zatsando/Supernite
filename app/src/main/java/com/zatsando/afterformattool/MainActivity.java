@@ -30,20 +30,20 @@ public class MainActivity extends AppCompatActivity {
         intellij_check = findViewById(R.id.intellij_check);
         vsc_check = findViewById(R.id.vsc_check);
         eclipse_check = findViewById(R.id.eclipse_check);
-
     }
 
     ArrayList<String> commands = new ArrayList<>();
 
     //read and clear buttons
     public void ready_button(View view) {
+        String chocoInstaller = "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));";
         String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
 
         //intend method to create the text file
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, textCommand);
-        sendIntent.setType("text/.ps1");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, chocoInstaller+textCommand);
+        sendIntent.setType("text/ps");
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
 
