@@ -1,7 +1,9 @@
 package com.zatsando.afterformattool;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +26,13 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
     private Button clearBtn;
     Button downloadBtn;
 
+    @SuppressLint("ResourceType")
     public MyListViewAdapter(@NonNull Activity context, ArrayList<Application> apps) {
         super(context, 0, apps);
         this.context = context;
         this.applications = apps;
         clearBtn = context.findViewById(R.id.clearBtn);
         downloadBtn = context.findViewById(R.id.downloadBtn);
-
 
     }
 
@@ -38,6 +41,7 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
 
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+
         }
 
         TextView textViewName = (TextView) view.findViewById(R.id.textViewName);
@@ -54,6 +58,13 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
             @Override
             public void onClick(View v) {
                 manageCheckedItem(application, isChecked);
+
+//                if (isChecked.isChecked()) {
+//                    linearLayout.setBackgroundColor(R.color.white);
+//                } else {
+//                    linearLayout.setBackgroundColor(R.color.selected);
+//
+//                }
             }
         });
 
