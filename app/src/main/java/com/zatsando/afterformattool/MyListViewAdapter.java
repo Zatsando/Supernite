@@ -6,33 +6,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyListViewAdapter extends ArrayAdapter<Application> {
 
     private final Activity context;
-    private ArrayList<Application>applications;
+    private ArrayList<Application> applications;
+    private Button clearBtn;
+    Button downloadBtn;
+
     public MyListViewAdapter(@NonNull Activity context, ArrayList<Application> apps) {
-        super(context, R.layout.list_item);
+        super(context, 0, apps);
         this.context = context;
         this.applications = apps;
+        clearBtn = context.findViewById(R.id.clearBtn);
+        downloadBtn = context.findViewById(R.id.downloadBtn);
+
+
     }
 
 
-    public View getView(int position, View view, ViewGroup parent){
-        LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.list_item, null,true);
+    public View getView(int position, View view, ViewGroup parent) {
 
-        TextView textViewName = (TextView) rowView.findViewById(R.id.textViewName);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.imageView);
-        CheckBox isChecked = (CheckBox) rowView.findViewById(R.id.isChecked);
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        }
+
+        TextView textViewName = (TextView) view.findViewById(R.id.textViewName);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        CheckBox isChecked = (CheckBox) view.findViewById(R.id.isChecked);
 
         Application application = applications.get(position);
 
@@ -40,8 +50,47 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
         imageView.setImageResource(application.getImageOfApp());
         isChecked.setChecked(application.isChecked());
 
-        return rowView;
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manageCheckedItem(application, isChecked);
+            }
+        });
+
+        isChecked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manageCheckedItem(application, isChecked);
+            }
+        });
+
+        return view;
     }
 
+    private void manageCheckedItem(Application application, CheckBox isChecked) {
+        if (application.isChecked()) {
+            Toast.makeText(context, "Removed " + application.getAppName(), Toast.LENGTH_SHORT).show();
+            isChecked.setChecked(false);
+            application.setChecked(false);
+        } else {
+            Toast.makeText(context, "Added " + application.getAppName(), Toast.LENGTH_SHORT).show();
+            isChecked.setChecked(true);
+            application.setChecked(true);
+        }
+
+//        HERE HIDES THE BUTTONS IF IS NOONE CHECKED ITEM
+        for (Application app : applications) {
+            if (app.isChecked()) {
+                clearBtn.setVisibility(View.VISIBLE);
+                downloadBtn.setVisibility(View.VISIBLE);
+
+            } else {
+                clearBtn.setVisibility(View.GONE);
+                downloadBtn.setVisibility(View.GONE);
+            }
+        }
+
+
+    }
 
 }

@@ -37,4 +37,14 @@ public class Application {
     public void setChecked(boolean checked) {
         isChecked = checked;
     }
+
+    public Application() {
+    }
+
+    public Application(String appName, String command, int imageOfApp, boolean isChecked) {
+        this.appName = appName;
+        this.command = command;
+        this.imageOfApp = imageOfApp;
+        this.isChecked = isChecked;
+    }
 }
