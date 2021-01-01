@@ -83,7 +83,7 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
             if (app.isChecked()) {
                 clearBtn.setVisibility(View.VISIBLE);
                 downloadBtn.setVisibility(View.VISIBLE);
-
+                break;
             } else {
                 clearBtn.setVisibility(View.GONE);
                 downloadBtn.setVisibility(View.GONE);

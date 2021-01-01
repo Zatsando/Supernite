@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void fillListWithItems() {
-        
+
         clearBtn.setVisibility(View.GONE);
         downloadBtn.setVisibility(View.GONE);
 
