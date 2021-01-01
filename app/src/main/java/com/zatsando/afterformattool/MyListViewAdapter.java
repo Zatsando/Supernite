@@ -79,16 +79,22 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
         }
 
 //        HERE HIDES THE BUTTONS IF IS NOONE CHECKED ITEM
+        boolean isAnyChecked = false;
+        int countSelectedApps = 0;
         for (Application app : applications) {
+
             if (app.isChecked()) {
                 clearBtn.setVisibility(View.VISIBLE);
                 downloadBtn.setVisibility(View.VISIBLE);
-                break;
-            } else {
+                isAnyChecked = true;
+                countSelectedApps++;
+            }
+            if (!isAnyChecked) {
                 clearBtn.setVisibility(View.GONE);
                 downloadBtn.setVisibility(View.GONE);
             }
         }
+        downloadBtn.setText("(" + countSelectedApps + ") TO DOWNLOAD");
 
 
     }
