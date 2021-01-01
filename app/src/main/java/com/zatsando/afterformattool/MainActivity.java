@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.FileUtils;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.net.URI;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,13 +87,24 @@ public class MainActivity extends AppCompatActivity {
     //read and clear buttons
     public void ready_button() {
         String chocoInstaller = "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));";
-        String textCommand = applicationsList.toString().replace(",", "").replace("[", "").replace("]", "");
+
+        StringBuilder sb = new StringBuilder();
+        for (Application app : applicationsList) {
+            if (app.isChecked()) {
+                sb.append(app.getCommand());
+            }
+        }
+
+        String textCommand = chocoInstaller + sb.toString();
+//        File file = new File(Uri.encode(textCommand));
 
         //intend method to create the text file
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, chocoInstaller + textCommand);
-        sendIntent.setType("text/plain");
+
+        sendIntent.setType("text/*");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textCommand);
+
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
 
