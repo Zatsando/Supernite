@@ -2,6 +2,8 @@ package com.zatsando.afterformattool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -46,16 +49,32 @@ public class MainActivity extends AppCompatActivity {
         clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (Application app : applicationsList) {
-                    app.setChecked(false);
-                }
-                adapter = new MyListViewAdapter(MainActivity.this, applicationsList);
-                listView.setAdapter(adapter);
-                clearBtn.setVisibility(View.GONE);
-                downloadBtn.setVisibility(View.GONE);
-            }
-        });
 
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("DELETE ALL?");
+                alertDialogBuilder.setMessage("You are going to delete all. Do you want to delete it?");
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        for (Application app : applicationsList) {
+                            app.setChecked(false);
+                        }
+                        adapter = new MyListViewAdapter(MainActivity.this, applicationsList);
+                        listView.setAdapter(adapter);
+                        clearBtn.setVisibility(View.GONE);
+                        downloadBtn.setVisibility(View.GONE);
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Nothing deleted", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alertDialogBuilder.show();
+            }
+
+        });
     }
 
 
@@ -85,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
         applicationsList.add(firefox);
         Application brave = new Application("Brave", "choco install brave -a;", R.drawable.brave, false);
         applicationsList.add(brave);
-        Application telegram = new Application("telegram", "choco install telegram -a;", R.drawable.telegram, false);
+        Application telegram = new Application("Telegram", "choco install telegram -a;", R.drawable.telegram, false);
         applicationsList.add(telegram);
-        Application discord = new Application("discord", "choco install discord -a;", R.drawable.discord, false);
+        Application discord = new Application("Discord", "choco install discord -a;", R.drawable.discord, false);
         applicationsList.add(discord);
-        Application intellij = new Application("intellij", "choco install intellij -a;", R.drawable.intellij, false);
+        Application intellij = new Application("Intellij", "choco install intellij -a;", R.drawable.intellij, false);
         applicationsList.add(intellij);
-        Application vsc = new Application("vsc", "choco install vsc -a;", R.drawable.vsc, false);
+        Application vsc = new Application("Vsc", "choco install vsc -a;", R.drawable.vsc, false);
         applicationsList.add(vsc);
     }
 
