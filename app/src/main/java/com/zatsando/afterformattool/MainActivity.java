@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox torrent_check;
     private CheckBox vlc_check;
     private CheckBox anydesk_check;
-    private Context context;
     ArrayList<String> commands = new ArrayList<>();
 
 
