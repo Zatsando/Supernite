@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             String chocoInstaller = "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));";
             String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
             String finalCommandFile = chocoInstaller + textCommand;
+
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, finalCommandFile);
