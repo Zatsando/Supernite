@@ -2,31 +2,216 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:screenOrientation="portrait"
-    android:configChanges="orientation|keyboardHidden"
+    android:configChanges="keyboardHidden"
     android:forceDarkAllowed="true"
+    android:screenOrientation="portrait"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageTorrent"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778"
+        app:srcCompat="@mipmap/qbittorrent" />
+
+    <CheckBox
+        android:id="@+id/torrent_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="torrent_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <CheckBox
+        android:id="@+id/vlc_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="vlc_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:id="@+id/editTextVarious"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="OTHERS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <ImageView
+        android:id="@+id/imageAnydesk"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892"
+        app:srcCompat="@mipmap/anydesk" />
+
+    <ImageView
+        android:id="@+id/imageVlc"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.67"
+        app:srcCompat="@mipmap/vlc" />
+
+    <CheckBox
+        android:id="@+id/anydesk_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="anydesk_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872" />
+
+    <TextView
+        android:id="@+id/Gaming"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="GAMING"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
+
+    <ImageView
+        android:id="@+id/imageGeforcenow"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486"
+        app:srcCompat="@mipmap/nvidia" />
+
+    <CheckBox
+        android:id="@+id/epic_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="epic_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.669" />
+
+    <CheckBox
+        android:id="@+id/geforcenow_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="geforcenow_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <CheckBox
+        android:id="@+id/steam_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="steam_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+    <ImageView
+        android:id="@+id/imageSteam"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58"
+        app:srcCompat="@mipmap/steam" />
+
+    <ImageView
+        android:id="@+id/imageEpic"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684"
+        app:srcCompat="@mipmap/epic" />
 
     <Button
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="36dp"
         android:onClick="clear_button"
         android:text="clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/vsc_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="vsc_check"
         android:layout_marginTop="204dp"
+        android:onClick="vsc_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +233,8 @@
         android:id="@+id/intellij_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="intellij_check"
         android:layout_marginTop="128dp"
+        android:onClick="intellij_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,13 +275,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/eclipse" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextDevtools"
-        android:layout_width="89dp"
-        android:layout_height="40dp"
+        android:layout_width="110dp"
+        android:layout_height="37dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:clickable="false"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Dev Tools"
+        android:text="DEVELOPMENT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
@@ -154,12 +342,12 @@
         android:id="@+id/ready_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="100dp"
         android:onClick="ready_button"
         android:text="@string/i_m_ready"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -173,38 +361,48 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/firefox" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextBrowsers"
         android:layout_width="89dp"
         android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:textStyle="bold"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
+        android:clickable="false"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/browsers"
+        android:text="BROWSERS"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="69dp"
+        android:layout_width="89dp"
         android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="204dp"
+        android:gravity="center"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:clickable="false"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/social"
+        android:text="SOCIAL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296" />
 
     <CheckBox
         android:id="@+id/mozila_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="mozila_check"
         android:layout_marginTop="128dp"
+        android:onClick="mozila_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
