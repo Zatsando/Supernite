@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox anydesk_check;
     private Context context;
     ArrayList<String> commands = new ArrayList<>();
-    String chocoInstaller = "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));";
-    String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
-    String finalCommandFile = chocoInstaller + textCommand;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +60,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "You have to check something, you know...", Toast.LENGTH_SHORT).show();
         }
         else {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, finalCommandFile);
-                sendIntent.setType("plain/text");
-                Intent shareIntent = Intent.createChooser(sendIntent, null);
-                startActivity(shareIntent);
+            String chocoInstaller = "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'));";
+            String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
+            String finalCommandFile = chocoInstaller + textCommand;
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, finalCommandFile);
+            sendIntent.setType("plain/text");
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
         }
     }
 
