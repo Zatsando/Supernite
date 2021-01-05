@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox vlc_check;
     private CheckBox anydesk_check;
     ArrayList<String> commands = new ArrayList<>();
+    private static final String FILE_NAME = "scriptinstaller.ps1";
 
 
     @Override
@@ -49,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         torrent_check = findViewById(R.id.torrent_check);
         vlc_check = findViewById(R.id.vlc_check);
         anydesk_check = findViewById(R.id.anydesk_check);
-
     }
 
     //read button to send
@@ -63,9 +65,23 @@ public class MainActivity extends AppCompatActivity {
             String textCommand = commands.toString().replace(",", "").replace("[" , "").replace("]", "");
             String finalCommandFile = chocoInstaller + textCommand;
 
+            //create the ps1 file into the root folder
+            FileOutputStream fos = null;
+            try {
+                fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+                fos.write(finalCommandFile.getBytes());
+                Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
+                        Toast.LENGTH_LONG).show();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+           //share the goddamn file!!!
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, finalCommandFile);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, FILE_NAME);
             sendIntent.setType("plain/text");
             Intent shareIntent = Intent.createChooser(sendIntent, null);
             startActivity(shareIntent);
