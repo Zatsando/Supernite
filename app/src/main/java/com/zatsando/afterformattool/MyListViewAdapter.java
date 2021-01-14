@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -80,11 +83,14 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
 
     private void manageCheckedItem(Application application, CheckBox isChecked) {
         if (application.isChecked()) {
-            Toast.makeText(context, "Removed " + application.getAppName(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "Removed " + application.getAppName(), Toast.LENGTH_SHORT).show();
+            snackBar("Removed " + application.getAppName());
+
             isChecked.setChecked(false);
             application.setChecked(false);
         } else {
-            Toast.makeText(context, "Added " + application.getAppName(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "Added " + application.getAppName(), Toast.LENGTH_SHORT).show();
+            snackBar("Added " + application.getAppName());
             isChecked.setChecked(true);
             application.setChecked(true);
         }
@@ -108,6 +114,10 @@ public class MyListViewAdapter extends ArrayAdapter<Application> {
         downloadBtn.setText("(" + countSelectedApps + ") TO DOWNLOAD");
 
 
+    }
+
+    public void snackBar(String text) {
+        Snackbar.make(context.getCurrentFocus(), text, Snackbar.LENGTH_LONG).show();
     }
 
 }
