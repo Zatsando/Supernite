@@ -77,21 +77,17 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
                         Toast.LENGTH_LONG).show();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, finalCommandFile);
+                sendIntent.setType("application/ps1");
+                Intent shareIntent = Intent.createChooser(sendIntent, "scriptinstaller.ps1");
+                startActivity(shareIntent);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            File scriptFile = getFileStreamPath("data/user/0/com.zatsando.afterformattool/files/scriptinstaller.ps1");
-
-//            share the goddamn file!!!
-//            Intent sendIntent = new Intent();
-//            sendIntent.setAction(Intent.ACTION_SEND);
-//            sendIntent.putExtra(Intent.EXTRA_TEXT, scriptFile);
-//            sendIntent.setType("plain/text");
-//            Intent shareIntent = Intent.createChooser(sendIntent, "scriptinstaller.ps1");
-//            startActivity(shareIntent);
         }
     }
 
